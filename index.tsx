@@ -1,15 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './src/styles/globals.css';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+
+// ✅ CSS files are in the root
+import './globals.css';
+import './tokens.css'; // remove if tokens.css not needed
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+  throw new Error('Root element #root not found in index.html');
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+createRoot(rootElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
